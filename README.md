@@ -26,6 +26,8 @@ In normal operation, rpi5sk runs Signal K in replica mode. It opens a WebSocket 
 
 If rpi4b goes offline, rpi5sk reconnects automatically once it comes back — no intervention needed.
 
+**Node-RED** runs as the `signalk-node-red` plugin — it is embedded inside Signal K, not a separate service. It starts and stops automatically with SK on whichever Pi is currently primary. No extra steps are needed in the swap scripts.
+
 ---
 
 ## Prerequisites
