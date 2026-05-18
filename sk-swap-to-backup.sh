@@ -66,6 +66,15 @@ ssh -o StrictHostKeyChecking=no "$USER@$RPI4B_NEW_IP" \
 echo "  Done."
 echo ""
 
+# ── Step 3b: Sync Node-RED flows to rpi5sk ────────────────────────────────
+echo "► Syncing Node-RED flows from rpi4b to rpi5sk..."
+scp "$USER@$RPI4B_NEW_IP:/home/pi/.signalk/red/flows_rpi4b.json" /tmp/flows_rpi4b.json
+scp "$USER@$RPI4B_NEW_IP:/home/pi/.signalk/red/flows_rpi4b_cred.json" /tmp/flows_rpi4b_cred.json
+sshpass -p "$PASS" scp -o StrictHostKeyChecking=no /tmp/flows_rpi4b.json "$USER@$RPI5SK_IP:/home/pi/.signalk/red/flows_rpi4b.json"
+sshpass -p "$PASS" scp -o StrictHostKeyChecking=no /tmp/flows_rpi4b_cred.json "$USER@$RPI5SK_IP:/home/pi/.signalk/red/flows_rpi4b_cred.json"
+echo "  Node-RED flows synced."
+echo ""
+
 # ── Step 4: Promote rpi5sk to primary ─────────────────────────────────────
 echo "► Promoting rpi5sk to primary (connecting to MNX_SYSTEMS as 192.168.1.30)..."
 echo "  (SSH to $RPI5SK_IP will drop as WiFi switches)"
