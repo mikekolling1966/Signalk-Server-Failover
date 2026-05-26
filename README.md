@@ -9,7 +9,7 @@ Scripts for cleanly swapping Signal K primary/backup roles between two Raspberry
 | Machine | Hostname | Normal IP | Normal Role |
 |---------|----------|-----------|-------------|
 | Primary | rpi4b | `192.168.1.30` | Signal K primary — all instruments |
-| Backup | rpi5sk | `192.168.9.244` | Signal K replica — mirrors rpi4b live |
+| Backup | rpi5sk | `192.168.1.10` | Signal K replica — mirrors rpi4b live |
 
 **During failover:**
 
@@ -104,7 +104,7 @@ bash sk-swap-to-primary.sh
 **State after:**
 ```
 rpi4b  → 192.168.1.30  (SK primary, Node-RED running — normal)
-rpi5sk → 192.168.9.244 (SK backup, mirroring rpi4b — normal)
+rpi5sk → 192.168.1.10  (SK backup, mirroring rpi4b — normal)
 ```
 
 ---
@@ -155,7 +155,7 @@ echo 'raspberry' | sudo -S bash -c \
 
 **Put rpi5sk back to backup mode:**
 ```bash
-sshpass -p 'raspberry' ssh pi@192.168.9.244 "sudo sk-resume-backup.sh"
+sshpass -p 'raspberry' ssh pi@192.168.1.10 "sudo sk-resume-backup.sh"
 ```
 
 **Start SK on rpi4b:**

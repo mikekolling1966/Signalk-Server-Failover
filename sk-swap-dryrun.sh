@@ -14,7 +14,7 @@ set -e
 
 RPI4B_IP="192.168.1.30"
 RPI4B_NEW_IP="192.168.1.60"
-RPI5SK_IP="192.168.9.244"
+RPI5SK_IP="192.168.1.10"
 SETTINGS="/home/pi/.signalk/settings.json"
 USER="pi"
 PASS="raspberry"

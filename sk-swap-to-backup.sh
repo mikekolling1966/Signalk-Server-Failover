@@ -3,7 +3,7 @@
 #
 # Swaps SK roles:
 #   rpi4b  192.168.1.30 → remapped to 192.168.1.60, SK stopped
-#   rpi5sk 192.168.9.244 → takes 192.168.1.30 on MNX_SYSTEMS, SK primary
+#   rpi5sk 192.168.1.10  → takes 192.168.1.30 on MNX_SYSTEMS, SK primary
 #
 # Run from this Mac: bash sk-swap-to-backup.sh
 
@@ -11,7 +11,7 @@ set -e
 
 RPI4B_IP="192.168.1.30"
 RPI4B_NEW_IP="192.168.1.60"
-RPI5SK_IP="192.168.9.244"
+RPI5SK_IP="192.168.1.10"
 USER="pi"
 PASS="raspberry"
 

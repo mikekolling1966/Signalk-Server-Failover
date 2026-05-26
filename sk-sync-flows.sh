@@ -7,7 +7,7 @@
 # Run from this Mac: bash sk-sync-flows.sh
 
 RPI4B_IP="192.168.1.30"
-RPI5SK_IP="192.168.9.244"
+RPI5SK_IP="192.168.1.10"
 USER="pi"
 PASS="raspberry"
 RED_DIR="/home/pi/.signalk/red"

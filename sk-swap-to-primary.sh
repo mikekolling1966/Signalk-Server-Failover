@@ -12,7 +12,7 @@ set -e
 
 RPI4B_TEMP_IP="192.168.1.60"
 RPI4B_NORMAL_IP="192.168.1.30"
-BOAT_IP="192.168.1.30"          # rpi5sk is here right now
+BOAT_IP="192.168.1.30"          # rpi5sk will be here after swap
 USER="pi"
 PASS="raspberry"
 
