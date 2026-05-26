@@ -40,9 +40,9 @@ echo ""
 # ── Step 2: Remap rpi4b to 192.168.1.60 ───────────────────────────────────
 echo "► Remapping rpi4b: 192.168.1.30 → $RPI4B_NEW_IP ..."
 echo "  (SSH will drop — reconnecting at new IP)"
-ssh "$USER@$RPI4B_IP" "echo '$PASS' | sudo -S bash -c \
+ssh -o ConnectTimeout=10 -o ServerAliveInterval=2 -o ServerAliveCountMax=2 "$USER@$RPI4B_IP" "echo '$PASS' | sudo -S bash -c \
     'nmcli con modify MNX_SYSTEMS ipv4.addresses $RPI4B_NEW_IP/24 && \
-     sleep 1 && nmcli con up MNX_SYSTEMS' &" || true
+     sleep 1 && nmcli con up MNX_SYSTEMS > /dev/null 2>&1 &' && sleep 2" || true
 
 echo "  Waiting for rpi4b at $RPI4B_NEW_IP..."
 for i in $(seq 1 15); do
